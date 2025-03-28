@@ -9,6 +9,7 @@ import {
 } from "@clerk/nextjs";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
+import Home from "./page";
 
 const geistSans = Inter({
   variable: "--font-geist-sans",
@@ -36,16 +37,17 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <header className="flex justify-end items-center p-4 gap-4 h-16">
+          <div className="h-screen flex flex-col justify-center items-center p-4 gap-4 bg-gray-300 text-gray-800">
+            <Home />
             <SignedOut>
               <SignInButton />
               <SignUpButton />
             </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </header>
-          {children}
+          </div>
+          <SignedIn>
+            {children}
+            <UserButton />
+          </SignedIn>
         </body>
       </html>
     </ClerkProvider>

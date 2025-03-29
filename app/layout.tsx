@@ -1,25 +1,7 @@
 import type { Metadata } from "next";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
+import ClientLayout from "./client-layout/page"; // Importujemy klientowy layout
 import "./globals.css";
-import Home from "./page";
-
-const geistSans = Inter({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Roboto_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Clerk Next.js Quickstart",
@@ -33,23 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <div className="h-screen flex flex-col justify-center items-center p-4 gap-4 bg-gray-300 text-gray-800">
-            <Home />
-            <SignedOut>
-              <SignInButton />
-              <SignUpButton />
-            </SignedOut>
-          </div>
-          <SignedIn>
-            {children}
-            <UserButton />
-          </SignedIn>
-        </body>
-      </html>
+      <ClientLayout>{children}</ClientLayout>
     </ClerkProvider>
   );
 }

@@ -34,8 +34,11 @@ export default function ClientLayout({
         </SignedOut>
 
         <SignedIn>
+          <header className="flex justify-between items-center p-4 bg-gray-700 text-white border-b border-white">
+            <div className="text-2xl font-bold">My App</div>
+            <UserButton />
+          </header>
           {children}
-          <UserButton />
         </SignedIn>
       </body>
     </html>

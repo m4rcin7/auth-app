@@ -1,4 +1,4 @@
-"use client"; // Oznaczamy jako Client Component
+"use client";
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -9,7 +9,6 @@ import {
   SignUpButton,
   UserButton,
 } from "@clerk/nextjs";
-import Home from "./page";
 
 export default function ClientLayout({
   children,
@@ -19,7 +18,7 @@ export default function ClientLayout({
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/panel"); // Przekierowanie po zalogowaniu
+    router.push("/panel");
   }, []);
 
   return (

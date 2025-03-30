@@ -24,19 +24,19 @@ export default function AdminPanel(): JSX.Element {
         </h2>
         <nav className="space-y-4">
           <a
-            href="#"
+            href="/dashboard"
             className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-200"
           >
             <Home size={20} /> <span>Dashboard</span>
           </a>
           <a
-            href="#"
+            href="/users"
             className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-200"
           >
             <Users size={20} /> <span>Users</span>
           </a>
           <a
-            href="#"
+            href="/settings"
             className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-200"
           >
             <Settings size={20} /> <span>Settings</span>

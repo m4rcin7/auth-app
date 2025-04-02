@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Home, Settings, Users } from "lucide-react";
+import { Menu, X, Home, Settings, Users, BarChart3Icon } from "lucide-react";
 import Link from "next/link";
 
 export default function Panel(): JSX.Element {
@@ -24,6 +24,12 @@ export default function Panel(): JSX.Element {
           className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-900 ease-in-out duration-200"
         >
           <Home size={20} /> <span>Dashboard</span>
+        </Link>{" "}
+        <Link
+          href="/chart"
+          className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-900 ease-in-out duration-200"
+        >
+          <BarChart3Icon size={20} /> <span>Analytics</span>
         </Link>
         <Link
           href="/users"

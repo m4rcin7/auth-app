@@ -114,8 +114,8 @@ export default function Chart(): JSX.Element {
   return (
     <div className="flex h-screen bg-zinc-950 text-white">
       <Panel />
-      <h1 className="text-2xl font-bold m-10">Chart</h1>
-      <div className="mt-20 h-max bg-gray-950 border border-gray-800 rounded-lg overflow-hidden">
+      <main className="flex-1 p-6">
+        <h1 className="text-2xl font-bold">Analytics</h1>
         <div className="p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
@@ -165,7 +165,7 @@ export default function Chart(): JSX.Element {
         <div className="h-[300px] w-full px-4 pb-4">
           <canvas ref={canvasRef} className="w-full h-full" />
         </div>
-      </div>
+      </main>
     </div>
   );
 }

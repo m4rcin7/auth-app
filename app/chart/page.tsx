@@ -112,10 +112,10 @@ export default function Chart(): JSX.Element {
   }, [period]);
 
   return (
-    <div className="flex h-screen bg-black text-white">
+    <div className="flex h-screen bg-zinc-950 text-white">
       <Panel />
-      <h1 className="text-2xl font-bold">Chart</h1>
-      <div className="mt-6 bg-gray-950 border border-gray-800 rounded-lg overflow-hidden">
+      <h1 className="text-2xl font-bold m-10">Chart</h1>
+      <div className="mt-20 h-max bg-gray-950 border border-gray-800 rounded-lg overflow-hidden">
         <div className="p-6">
           <div className="flex items-center justify-between mb-6">
             <div>

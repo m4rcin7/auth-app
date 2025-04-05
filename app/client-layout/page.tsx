@@ -26,7 +26,9 @@ export default function ClientLayout({
       <body className="antialiased">
         <SignedOut>
           <div className="h-screen flex flex-col justify-center items-center p-4 gap-4 bg-gray-300 text-gray-800">
-            <div>Welcome to the Home Page</div>
+            <h1 className="text-3xl font-bold text-pink-400">
+              Welcome to the Home Page
+            </h1>
             <SignInButton />
             <SignUpButton />
           </div>

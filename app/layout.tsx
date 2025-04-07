@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-import ClientLayout from "./client-layout/page"; // Importujemy klientowy layout
+import ClientLayout from "./client-layout/page"; 
 import "./globals.css";
 
 export const metadata: Metadata = {

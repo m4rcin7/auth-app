@@ -1,9 +1,20 @@
+"use client";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, Home, Settings, Users, BarChart3, Globe } from "lucide-react";
 import Link from "next/link";
 
 export default function Panel(): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const pathname = usePathname();
+
+  const navLinks = [
+    { href: "/panel", icon: <Globe size={20} />, label: "Panel" },
+    { href: "/dashboard", icon: <Home size={20} />, label: "Dashboard" },
+    { href: "/chart", icon: <BarChart3 size={20} />, label: "Analytics" },
+    { href: "/users", icon: <Users size={20} />, label: "Users" },
+    { href: "/settings", icon: <Settings size={20} />, label: "Settings" },
+  ];
 
   return (
     <>
@@ -31,33 +42,23 @@ export default function Panel(): JSX.Element {
         </h2>
 
         <nav className="space-y-4 flex-1">
-          {[
-            { href: "/panel", icon: <Globe size={20} />, label: "Panel" },
-            {
-              href: "/dashboard",
-              icon: <Home size={20} />,
-              label: "Dashboard",
-            },
-            {
-              href: "/chart",
-              icon: <BarChart3 size={20} />,
-              label: "Analytics",
-            },
-            { href: "/users", icon: <Users size={20} />, label: "Users" },
-            {
-              href: "/settings",
-              icon: <Settings size={20} />,
-              label: "Settings",
-            },
-          ].map(({ href, icon, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="flex items-center space-x-3 p-3 rounded-lg text-gray-300 hover:bg-gray-700 transition duration-200"
-            >
-              {icon} <span>{label}</span>
-            </Link>
-          ))}
+          {navLinks.map(({ href, icon, label }) => {
+            const isActive = pathname === href;
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`flex items-center space-x-3 p-3 rounded-lg transition duration-200
+                  ${
+                    isActive
+                      ? "bg-gray-600 text-pink-400"
+                      : "text-gray-300 hover:bg-gray-700 active:bg-gray-600 active:text-pink-400"
+                  }`}
+              >
+                {icon} <span>{label}</span>
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </>

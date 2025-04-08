@@ -9,6 +9,7 @@ import {
   SignUpButton,
   UserButton,
 } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 
 export default function ClientLayout({
   children,
@@ -29,15 +30,15 @@ export default function ClientLayout({
             <h1 className="text-3xl font-bold text-pink-400">
               Welcome to the Home Page
             </h1>
-            <SignInButton />
-            <SignUpButton />
+            <SignInButton mode="modal" />
+            <SignUpButton mode="modal" />
           </div>
         </SignedOut>
 
         <SignedIn>
           <header className="flex justify-between items-center p-4 bg-gray-700 text-white border-b border-white">
             <div className="text-2xl font-bold">My App</div>
-            <UserButton />
+            <UserButton showName />
           </header>
           {children}
         </SignedIn>
